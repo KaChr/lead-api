@@ -1,9 +1,7 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  var profile_schools = sequelize.define('profile_schools', {
-    school_id: DataTypes.INTERGER,
-    student_id: DataTypes.INTERGER,
-    verify: DataTypes.BOOLEAN,
+  var countries = sequelize.define('countries', {
+    country_name: DataTypes.STRING,
     timestamp: DataTypes.DATE
   }, {
     classMethods: {
@@ -12,5 +10,5 @@ module.exports = (sequelize, DataTypes) => {
       }
     }
   });
-  return profile_schools;
+  return countries;
 };
