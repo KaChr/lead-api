@@ -1,6 +1,6 @@
 {
   "name": "EXOFRAME_NAME",
-  "project": "EXOFRMAE_PROJECT",
+  "project": "EXOFRAME_PROJECT",
   "domain": "TRAEFIK_ENV.chas.school",
   "template": "docker-compose"
 }
