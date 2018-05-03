@@ -9,7 +9,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       profile_student_id: {
-        type: Sequelize.INTERGER
+        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,

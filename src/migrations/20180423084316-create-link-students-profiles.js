@@ -9,10 +9,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       url: {
-        type: Sequelize.VARCHAR
-      },
-      timestamp: {
-        type: Sequelize.DATETIME
+        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,

@@ -9,16 +9,13 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       school_id: {
-        type: Sequelize.INTERGER
+        type: Sequelize.INTEGER
       },
       student_id: {
-        type: Sequelize.INTERGER
+        type: Sequelize.INTEGER
       },
       verify: {
         type: Sequelize.BOOLEAN
-      },
-      timestamp: {
-        type: Sequelize.DATETIME
       },
       createdAt: {
         allowNull: false,

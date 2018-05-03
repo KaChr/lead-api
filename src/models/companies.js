@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
     logo_url: DataTypes.STRING(50),
     country_id: DataTypes.INTEGER,
     city_id: DataTypes.INTEGER,
-    user_id: DataTypes.INT,
+    user_id: DataTypes.INTEGER,
     timestamp: DataTypes.DATE
   }, {
     classMethods: {

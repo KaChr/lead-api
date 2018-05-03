@@ -9,22 +9,22 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       name: {
-        type: Sequelize.VARCHAR
+        type: Sequelize.STRING
       },
       age: {
         type: Sequelize.INTEGER
       },
       city_id: {
-        type: Sequelize.INTERGER
+        type: Sequelize.INTEGER
       },
       image_adress: {
-        type: Sequelize.VARCHAR
+        type: Sequelize.STRING
       },
       current_school: {
-        type: Sequelize.VARCHAR
+        type: Sequelize.STRING
       },
       school_length: {
-        type: Sequelize.VARCHAR
+        type: Sequelize.STRING
       },
       intern_period_start: {
         type: Sequelize.DATE
@@ -40,9 +40,6 @@ module.exports = {
       },
       education: {
         type: Sequelize.TEXT
-      },
-      timestamp: {
-        type: Sequelize.DATETIME
       },
       student_id: {
         type: Sequelize.INTEGER

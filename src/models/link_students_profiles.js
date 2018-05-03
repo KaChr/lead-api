@@ -1,8 +1,8 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   var Link_students_profiles = sequelize.define('Link_students_profiles', {
-    url: DataTypes.VARCHAR,
-    timestamp: DataTypes.DATE
+    url: DataTypes.STRING
+    
   }, {
     classMethods: {
       associate: function(models) {

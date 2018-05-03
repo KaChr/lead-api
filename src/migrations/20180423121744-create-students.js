@@ -9,31 +9,29 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       first_name: {
-        type: Sequelize.STRING50
+        type: Sequelize.STRING
       },
       last_name: {
-        type: Sequelize.STRING50
+        type: Sequelize.STRING
       },
       email: {
-        type: Sequelize.STRING50
+        type: Sequelize.STRING
       },
       phone: {
-        type: Sequelize.STRING50
+        type: Sequelize.STRING
       },
       street_adress: {
-        type: Sequelize.STRING50
+        type: Sequelize.STRING
       },
       social_security_number: {
-        type: Sequelize.STRING50
+        type: Sequelize.STRING
       },
-      timestamp: {
-        type: Sequelize.DATE
-      },
+     
       country_id: {
         type: Sequelize.INTEGER
       },
       city_id: {
-        type: Sequelize.INTERGER
+        type: Sequelize.INTEGER
       },
       user_id: {
         type: Sequelize.INTEGER

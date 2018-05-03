@@ -1,10 +1,9 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   var profile_schools = sequelize.define('profile_schools', {
-    school_id: DataTypes.INTERGER,
-    student_id: DataTypes.INTERGER,
+    school_id: DataTypes.INTEGER,
+    student_id: DataTypes.INTEGER,
     verify: DataTypes.BOOLEAN,
-    timestamp: DataTypes.DATE
   }, {
     classMethods: {
       associate: function(models) {

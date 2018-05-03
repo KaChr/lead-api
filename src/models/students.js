@@ -7,9 +7,9 @@ module.exports = (sequelize, DataTypes) => {
     phone: DataTypes.STRING(50),
     street_adress: DataTypes.STRING(50),
     social_security_number: DataTypes.STRING(50),
-    timestamp: DataTypes.DATE,
+   
     country_id: DataTypes.INTEGER,
-    city_id: DataTypes.INTERGER,
+    city_id: DataTypes.INTEGER,
     user_id: DataTypes.INTEGER
   }, {
     classMethods: {

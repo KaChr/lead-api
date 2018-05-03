@@ -30,7 +30,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       user_id: {
-        type: Sequelize.INT
+        type: Sequelize.INTEGER
       },
       timestamp: {
         type: Sequelize.DATE
