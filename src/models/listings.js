@@ -15,6 +15,8 @@ export default (sequelize, DataTypes) => {
       /**
        * Listings.belongsTo(models.Company)
        */
+
+      
   };
 
   return Listings;
