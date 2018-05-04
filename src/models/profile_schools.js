@@ -3,7 +3,7 @@ module.exports = (sequelize, DataTypes) => {
   var profile_schools = sequelize.define('profile_schools', {
     school_id: DataTypes.INTEGER,
     student_id: DataTypes.INTEGER,
-    verify: DataTypes.BOOLEAN,
+    verify: DataTypes.BOOLEAN
   }, {
     classMethods: {
       associate: function(models) {

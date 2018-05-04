@@ -1,5 +1,6 @@
 import { authBearer } from '../lib/Sessions'
 import C from '../controllers'
+// import DB from '../models'
 
 export default (app) => {
   app.get('/', (req, res) => res.status(200).send({
@@ -26,4 +27,18 @@ export default (app) => {
   app.patch('/tests/:id', C.Tests.update)
   app.put('/tests/:id', C.Tests.update)
   app.delete('/tests/:id', C.Tests.destroy)
+
+  /* Listings */
+  /*app.get('/listings', function(req, res) {
+    DB.Listings.findAll().then(function(data) {
+      res.status(200).send(data);
+    })
+    .catch(function(error) {
+      res.status(400).send(error);
+    })
+    //return res.send('Hej')
+  })*/
+
+  app.get('/listings', C.Listings.list)
+  app.get('/listings/:id', C.Listings.find)
 }

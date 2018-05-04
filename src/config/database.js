@@ -8,6 +8,10 @@ if (!process.env.PG_DB) {
   }
 
   console.log('[api][sequelize] Loaded database ENV vars from .env file')
+  console.log(process.env.POSTGRES_USER)
+  console.log(process.env.POSTGRES_PASSWORD)
+  console.log(process.env.POSTGRES_DB)
+  console.log(process.env.POSTGRES_HOST)
 }
 
 module.exports = {

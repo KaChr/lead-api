@@ -26,7 +26,9 @@ module.exports = {
       social_security_number: {
         type: Sequelize.STRING
       },
-     
+      timestamp: {
+        type: Sequelize.DATE
+      },
       country_id: {
         type: Sequelize.INTEGER
       },
