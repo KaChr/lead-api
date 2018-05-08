@@ -14,7 +14,8 @@ export default (app) => {
 
   /* Users */
   app.get('/users', authBearer(), C.Users.list)
-  app.post('/users', authBearer(), C.Users.create)
+  app.post('/users', C.Users.create)
+  app.post('/login-student', C.Users.login_student)
   app.get('/users/:userId', authBearer(), C.Users.find)
   app.put('/users/:userId', authBearer(), C.Users.update)
   app.delete('/users/:userId', authBearer(), C.Users.destroy)
