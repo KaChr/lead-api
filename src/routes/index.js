@@ -37,5 +37,8 @@ export default (app) => {
 
   /* Listings */
   app.get('/listings', C.Listings.list)
+  app.post('/listings', C.Listings.create)
   app.get('/listings/:id', C.Listings.find)
+  app.put('/listings/:id', C.Listings.update)
+  app.delete('/listings/:id', C.Listings.destroy)
 }

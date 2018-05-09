@@ -7,7 +7,6 @@ export default (sequelize, DataTypes) => {
     information: DataTypes.TEXT,
     intern_amount: DataTypes.INTEGER,
     profile_company_id: DataTypes.INTEGER,
-    timestamp: DataTypes.DATE
   })
 
   Listings.associate = (models) => {
@@ -15,6 +14,8 @@ export default (sequelize, DataTypes) => {
       /**
        * Listings.belongsTo(models.Company)
        */
+
+      
   };
 
   return Listings;
