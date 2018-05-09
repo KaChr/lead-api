@@ -14,11 +14,17 @@ export default (app) => {
 
   /* Users */
   app.get('/users', authBearer(), C.Users.list)
-  app.post('/users', C.Users.create)
-  app.post('/login-student', C.Users.login_student)
   app.get('/users/:userId', authBearer(), C.Users.find)
   app.put('/users/:userId', authBearer(), C.Users.update)
   app.delete('/users/:userId', authBearer(), C.Users.destroy)
+
+  /* Students */
+  app.post('/register-student', C.Users.create_student)
+  app.post('/login-student', C.Users.login_student)
+  // app.put('/update-student/:id', C.Users.update_student)
+
+  /* Companies */
+  app.post('/register-company', C.Users.create_company)
 
   /* Tests */
   app.get('/tests', C.Tests.list)
@@ -30,16 +36,6 @@ export default (app) => {
   app.delete('/tests/:id', C.Tests.destroy)
 
   /* Listings */
-  /*app.get('/listings', function(req, res) {
-    DB.Listings.findAll().then(function(data) {
-      res.status(200).send(data);
-    })
-    .catch(function(error) {
-      res.status(400).send(error);
-    })
-    //return res.send('Hej')
-  })*/
-
   app.get('/listings', C.Listings.list)
   app.get('/listings/:id', C.Listings.find)
 }

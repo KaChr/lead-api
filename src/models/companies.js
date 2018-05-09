@@ -1,6 +1,8 @@
 'use strict';
-module.exports = (sequelize, DataTypes) => {
-  var Companies = sequelize.define('Companies', {
+
+export default (sequelize, DataTypes) => {
+// module.exports = (sequelize, DataTypes) => {
+  const Companies = sequelize.define('Companies', {
     name: DataTypes.STRING(50),
     email: DataTypes.STRING(50),
     phone: DataTypes.STRING(50),
@@ -9,12 +11,14 @@ module.exports = (sequelize, DataTypes) => {
     country_id: DataTypes.INTEGER,
     city_id: DataTypes.INTEGER,
     user_id: DataTypes.INTEGER
-  }, {
-    classMethods: {
-      associate: function(models) {
-        // associations can be defined here
-      }
-    }
   });
+
+  Companies.associate = (models) => {
+    // associations can be defined here
+    /**
+     * Listings.belongsTo(models.Company)
+     */
+  };
+
   return Companies;
 };
