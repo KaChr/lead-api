@@ -20,9 +20,6 @@ module.exports = {
       street_adress: {
         type: Sequelize.STRING
       },
-      timstamp: {
-        type: Sequelize.DATE
-      },
       country_id: {
         type: Sequelize.INTEGER
       },

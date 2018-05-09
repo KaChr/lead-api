@@ -183,6 +183,49 @@ export default {
     });
   },
 
+  create_school(req, res) {
+    const main = require('../models/index');
+    return main.sequelize.transaction().then((t) => {
+      const Pwd = req.body.password;
+      const salt = BCrypt.genSaltSync(10);
+      const password = BCrypt.hashSync(Pwd.toString(), salt);
+      
+      return DB.User.create({
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email,
+        role: req.body.role,
+        password: password,
+        redirect: req.body.redirect,
+        status: req.body.status
+      }, {transaction: t})
+      .then((response) => {
+        console.log(response);
+
+        return DB.Schools.create({
+            name: req.body.name,
+            email: response.email,
+            phone: req.body.phone,
+            street_adress: req.body.street_adress,
+            country_id: req.body.country_id,
+            city_id: req.body.city_id,
+            user_id: response.userId
+          }, {transaction: t})
+          .then((response2) => {
+            res.status(200).send(response2);
+            return t.commit();
+          })
+          .catch((error) => {
+            console.log(error);
+            return t.rollback();
+          });
+      }).catch((err) => {
+        console.log(err);
+        return t.rollback();
+      });
+    });
+  },
+
   find(req, res) {
     Users.find({
       res,
