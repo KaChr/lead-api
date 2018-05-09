@@ -26,6 +26,9 @@ export default (app) => {
   /* Companies */
   app.post('/register-company', C.Users.create_company)
 
+  /* Schools */
+  app.post('/register-school', C.Users.create_school)
+
   /* Tests */
   app.get('/tests', C.Tests.list)
   app.get('/tests/custom-method', C.Tests.customMethod) // Should be placed before other requests with dynamic values
