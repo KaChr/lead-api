@@ -18,7 +18,7 @@ export default (app) => {
   app.get('/users/:userId', authBearer(), C.Users.find)
   app.put('/users/:userId', authBearer(), C.Users.update)
   app.delete('/users/:userId', authBearer(), C.Users.destroy)
-  app.get('/verify-token', checkAuth, C.Users.verify_token)
+  app.post('/verify-token', checkAuth, C.Users.verify_token)
 
   /* Students */
   app.post('/register-student', C.Users.create_student)
