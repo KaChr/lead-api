@@ -20,7 +20,7 @@ module.exports = {
       intern_amount: {
         type: Sequelize.INTEGER
       },
-      profile_company_id: {
+      company_id: {
         type: Sequelize.INTEGER
       },
       createdAt: {

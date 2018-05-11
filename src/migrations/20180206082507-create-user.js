@@ -8,26 +8,26 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      firstName: {
+      /*firstName: {
         type: Sequelize.STRING
       },
       lastName: {
         type: Sequelize.STRING
-      },
+      },*/
       email: {
         type: Sequelize.STRING,
         unique: true
       },
-      role: {
+      /*role: {
         type: Sequelize.STRING
-      },
+      },*/
       password: {
         type: Sequelize.STRING
       },
-      status: {
+      /*status: {
         allowNull: false,
         type: Sequelize.STRING
-      },
+      },*/
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
@@ -38,7 +38,7 @@ module.exports = {
       }
     })
     .then(() => {
-      queryInterface.addIndex('Users', { fields: ['firstName', 'lastName', 'email'] })
+      queryInterface.addIndex('Users', { fields: ['email'] })
     })
   },
   down: (queryInterface, Sequelize) => {
