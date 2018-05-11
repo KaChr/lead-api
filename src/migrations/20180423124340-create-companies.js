@@ -9,6 +9,9 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       name: {
+        type: Sequelize.TEXT
+      },
+      information: {
         type: Sequelize.STRING
       },
       email: {
@@ -20,7 +23,13 @@ module.exports = {
       street_adress: {
         type: Sequelize.STRING
       },
+      postal_code: {
+        type: Sequelize.INTEGER
+      },
       logo_url: {
+        type: Sequelize.STRING
+      },
+      website: {
         type: Sequelize.STRING
       },
       country_id: {

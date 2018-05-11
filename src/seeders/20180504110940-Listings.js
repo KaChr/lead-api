@@ -7,7 +7,7 @@ module.exports = {
         pub_date: new Date(),
         information: 'bla bla ba',
         intern_amount: '3',
-        profile_company_id: '1',
+        company_id: '1',
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -16,7 +16,7 @@ module.exports = {
         pub_date: new Date(),
         information: 'bla bla ba',
         intern_amount: '3',
-        profile_company_id: '2',
+        company_id: '2',
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -25,7 +25,7 @@ module.exports = {
         pub_date: new Date(),
         information: 'bla bla ba',
         intern_amount: '2',
-        profile_company_id: '3',
+        company_id: '3',
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -34,7 +34,7 @@ module.exports = {
         pub_date: new Date(),
         information: 'bla bla ba',
         intern_amount: '5',
-        profile_company_id: '4',
+        company_id: '4',
         createdAt: new Date(),
         updatedAt: new Date()
       }], {});

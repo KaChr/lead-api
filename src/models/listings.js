@@ -6,7 +6,7 @@ export default (sequelize, DataTypes) => {
     pub_date: DataTypes.DATEONLY,
     information: DataTypes.TEXT,
     intern_amount: DataTypes.INTEGER,
-    profile_company_id: DataTypes.INTEGER,
+    company_id: DataTypes.INTEGER,
   })
 
   Listings.associate = (models) => {
