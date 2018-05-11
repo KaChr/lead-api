@@ -73,7 +73,9 @@ export default {
     });
   },
 
-  login_student(req, res) {
+  login(req, res) {
+    const main = require('../models/index');
+
     DB.User.find({
       where: {
         email: req.body.email
@@ -92,7 +94,7 @@ export default {
             message: 'Authorization failed'
           });
         }
-        
+
         if(result) {
           const token = JWT.sign({
             email: user.email,
@@ -118,6 +120,53 @@ export default {
       return res.status(401).json({
         message: 'Authorization failed'
       });
+    });
+  },
+
+  user_type(req, res) {
+    DB.Students.findOne({
+      where: {user_id: req.params.id},
+      attributes: ['id']
+    })
+    .then((student) => {
+      console.log(student.id);
+      return res.status(200).json({
+        id: student.id,
+        role: 'student'
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+
+    DB.Companies.findOne({
+      where: {user_id: req.params.id},
+      attributes: ['id']
+    })
+    .then((company) => {
+      console.log(company.id);
+      return res.status(200).json({
+        id: company.id,
+        role: 'company'
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+
+    DB.Schools.findOne({
+      where: {user_id: req.params.id},
+      attributes: ['id']
+    })
+    .then((school) => {
+      console.log(school.id);
+      return res.status(200).json({
+        id: school.id,
+        role: 'school'
+      });
+    })
+    .catch((err) => {
+      console.log(err);
     });
   },
 

@@ -19,10 +19,11 @@ export default (app) => {
   app.put('/users/:userId', authBearer(), C.Users.update)
   app.delete('/users/:userId', authBearer(), C.Users.destroy)
   app.post('/verify-token', checkAuth, C.Users.verify_token)
+  app.get('/user-type/:id', checkAuth, C.Users.user_type)
+  app.post('/login', C.Users.login)
 
   /* Students */
   app.post('/register-student', C.Users.create_student)
-  app.post('/login-student', C.Users.login_student)
   // app.put('/update-student/:id', C.Users.update_student)
 
   /* Companies */
