@@ -287,12 +287,12 @@ export default {
     .then((result) => {
       console.log(result);
       return res.status(200).json({
-        message: 'Student successfully deleted'
+        message: 'User successfully deleted'
       });
     }).catch((error) => {
       console.log(error);
       return res.status(200).json({
-        message: 'Failure in deleting student'
+        message: 'Failure in deleting user'
       });
     });
   },
