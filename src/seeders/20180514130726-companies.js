@@ -1,3 +1,5 @@
+import Companies from "../controllers/Companies";
+
 'use strict';
 
 module.exports = {
@@ -51,7 +53,7 @@ module.exports = {
     
       
       
-      return queryInterface.bulkDelete('Person', null, {});
+      return queryInterface.bulkDelete(Companies, null, {});
     
   }
 };
