@@ -17,13 +17,14 @@ export default (app) => {
   app.get('/users', authBearer(), C.Users.list)
   app.get('/users/:userId', authBearer(), C.Users.find)
   app.put('/users/:userId', authBearer(), C.Users.update)
-  app.delete('/users/:userId', authBearer(), C.Users.destroy)
+  app.delete('/delete-user/:id', checkAuth, C.Users.destroy_user)
   app.post('/verify-token', checkAuth, C.Users.verify_token)
   app.get('/user-type/:id', checkAuth, C.Users.user_type)
   app.post('/login', C.Users.login)
 
   /* Students */
   app.post('/register-student', C.Users.create_student)
+  // app.delete('/delete-student/:id', checkAuth, C.Users.destroy_student)
   // app.put('/update-student/:id', C.Users.update_student)
 
   /* Companies */
