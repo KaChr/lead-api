@@ -33,14 +33,12 @@ export default (sequelize, DataTypes) => {
     });
 
     Companies.belongsTo(models.cities, {
-      onDelete: "CASCADE",
       foreignKey: {
         allowNull: false
       }
     });
 
     Companies.belongsTo(models.countries, {
-      onDelete: "CASCADE",
       foreignKey: {
         allowNull: false
       }

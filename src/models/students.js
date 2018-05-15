@@ -31,14 +31,12 @@ export default (sequelize, DataTypes) => {
     });
 
     Students.belongsTo(models.cities, {
-      onDelete: "CASCADE",
       foreignKey: {
         allowNull: false
       }
     });
 
     Students.belongsTo(models.countries, {
-      onDelete: "CASCADE",
       foreignKey: {
         allowNull: false
       }
