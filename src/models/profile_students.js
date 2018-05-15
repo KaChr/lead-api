@@ -12,11 +12,28 @@ module.exports = (sequelize, DataTypes) => {
     description: DataTypes.TEXT,
     knowledge: DataTypes.TEXT,
     education: DataTypes.TEXT,
-    student_id: DataTypes.INTEGER
+    student_id: {
+      type: DataTypes.INTEGER,
+      unique: true
+    }
   }, {
     classMethods: {
       associate: function(models) {
-        // associations can be defined here
+        Profile_students.belongsTo(models.Students, {
+          onDelete: "CASCADE",
+          foreignKey: {
+            allowNull: false
+          }
+        });
+
+        Profile_students.belongsTo(models.cities, {
+          onDelete: "CASCADE",
+          foreignKey: {
+            allowNull: false
+          }
+        });
+
+        Profile_students.hasMany(models.Link_students_profiles_connections);
       }
     }
   });
