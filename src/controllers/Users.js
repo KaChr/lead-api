@@ -278,6 +278,25 @@ export default {
     });
   },
 
+  destroy_user(req, res) {
+    DB.User.destroy({
+      where: {
+        userId: req.params.id
+      }
+    })
+    .then((result) => {
+      console.log(result);
+      return res.status(200).json({
+        message: 'User successfully deleted'
+      });
+    }).catch((error) => {
+      console.log(error);
+      return res.status(200).json({
+        message: 'Failure in deleting user'
+      });
+    });
+  },
+
   verify_token(req, res) {
     try {
       const token = req.headers.authorization.split(" ")[1];
