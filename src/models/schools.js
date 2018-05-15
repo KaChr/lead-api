@@ -21,17 +21,8 @@ module.exports = (sequelize, DataTypes) => {
           }
         });
 
-        Schools.belongsTo(models.cities, {
-          foreignKey: {
-            allowNull: false
-          }
-        });
-
-        Schools.belongsTo(models.countries, {
-          foreignKey: {
-            allowNull: false
-          }
-        });
+        Schools.belongsTo(models.cities);
+        Schools.belongsTo(models.countries);
 
         Schools.hasMany(models.profile_schools);
       }

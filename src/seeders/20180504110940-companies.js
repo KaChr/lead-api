@@ -1,5 +1,3 @@
-import Companies from "../controllers/Companies";
-
 'use strict';
 
 module.exports = {
@@ -40,9 +38,23 @@ module.exports = {
         postal_code: 29166,
         logo_url: 'www.logo.com',
         website: 'goodcompany3.com',
-        country_id: 3,
-        city_id: 3,
-        user_id: 3 ,
+        country_id: 2,
+        city_id: 2,
+        user_id: 3,
+        createdAt: new Date(),
+        updatedAt: new Date() 
+      },
+      { 
+        name: 'Very good company4',
+        information: 'miche bra bra bra' ,
+        phone: '0704343233',
+        street_adress: 'some adress 4',
+        postal_code: 29166,
+        logo_url: 'www.logo.com',
+        website: 'goodcompany4.com',
+        country_id: 1,
+        city_id: 1,
+        user_id: 4,
         createdAt: new Date(),
         updatedAt: new Date() 
       }], {});

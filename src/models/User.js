@@ -39,9 +39,7 @@ export default (sequelize, DataTypes) => {
     })*/
 
     User.hasOne(models.Students);
-
     User.hasOne(models.Schools);
-
     User.hasOne(models.Companies);
   };
 

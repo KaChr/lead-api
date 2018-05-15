@@ -32,20 +32,10 @@ export default (sequelize, DataTypes) => {
       }
     });
 
-    Companies.belongsTo(models.cities, {
-      foreignKey: {
-        allowNull: false
-      }
-    });
-
-    Companies.belongsTo(models.countries, {
-      foreignKey: {
-        allowNull: false
-      }
-    });
-
+    Companies.belongsTo(models.cities);
+    Companies.belongsTo(models.countries);
+    
     Companies.hasMany(models.Listings);
-
     Companies.hasMany(models.watchlist_students);
   };
 

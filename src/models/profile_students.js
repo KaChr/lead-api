@@ -26,11 +26,7 @@ module.exports = (sequelize, DataTypes) => {
           }
         });
 
-        Profile_students.belongsTo(models.cities, {
-          foreignKey: {
-            allowNull: false
-          }
-        });
+        Profile_students.belongsTo(models.cities);
 
         Profile_students.hasMany(models.Link_students_profiles_connections);
       }
