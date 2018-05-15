@@ -15,7 +15,12 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       city_id: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'cities',
+          key: 'id'
+        }
       },
       image_adress: {
         type: Sequelize.STRING
@@ -42,7 +47,13 @@ module.exports = {
         type: Sequelize.TEXT
       },
       student_id: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        onDelete: "CASCADE",
+        allowNull: false,
+        references: {
+          model: 'Students',
+          key: 'id'
+        }
       },
       createdAt: {
         allowNull: false,

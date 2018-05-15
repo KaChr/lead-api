@@ -7,11 +7,33 @@ module.exports = (sequelize, DataTypes) => {
     street_adress: DataTypes.STRING(50),
     country_id: DataTypes.INTEGER,
     city_id: DataTypes.INTEGER,
-    user_id: DataTypes.INTEGER
+    user_id: {
+      type: DataTypes.INTEGER,
+      unique: true
+    }
   }, {
     classMethods: {
       associate: function(models) {
-        // associations can be defined here
+        Schools.belongsTo(models.User, {
+          onDelete: "CASCADE",
+          foreignKey: {
+            allowNull: false
+          }
+        });
+
+        Schools.belongsTo(models.cities, {
+          foreignKey: {
+            allowNull: false
+          }
+        });
+
+        Schools.belongsTo(models.countries, {
+          foreignKey: {
+            allowNull: false
+          }
+        });
+
+        Schools.hasMany(models.profile_schools);
       }
     }
   });

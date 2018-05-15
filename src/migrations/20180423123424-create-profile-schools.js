@@ -9,10 +9,21 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       school_id: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'Schools',
+          key: 'id'
+        }
       },
       student_id: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        onDelete: "CASCADE",
+        allowNull: false,
+        references: {
+          model: 'Students',
+          key: 'id'
+        }
       },
       verify: {
         type: Sequelize.BOOLEAN
