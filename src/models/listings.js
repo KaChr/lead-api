@@ -6,7 +6,10 @@ export default (sequelize, DataTypes) => {
     pub_date: DataTypes.DATEONLY,
     information: DataTypes.TEXT,
     intern_amount: DataTypes.INTEGER,
-    company_id: DataTypes.INTEGER,
+    company_id: {
+      type: DataTypes.INTEGER,
+      unique: true
+    }
   })
 
   Listings.associate = (models) => {
@@ -15,7 +18,12 @@ export default (sequelize, DataTypes) => {
        * Listings.belongsTo(models.Company)
        */
 
-      
+    Listings.belongsTo(models.Companies, {
+      onDelete: "CASCADE",
+      foreignKey: {
+        allowNull: false
+      }
+    });      
   };
 
   return Listings;

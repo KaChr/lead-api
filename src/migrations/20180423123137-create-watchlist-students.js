@@ -1,27 +1,29 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Listings', {
+    return queryInterface.createTable('watchlist_students', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      title: {
-        type: Sequelize.STRING
-      },
-      pub_date: {
-        type: Sequelize.DATEONLY
-      },
-      information: {
-        type: Sequelize.TEXT
-      },
-      intern_amount: {
-        type: Sequelize.INTEGER
-      },
       company_id: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'Companies',
+          key: 'id'
+        }
+      },
+      student_id: {
+        type: Sequelize.INTEGER,
+        onDelete: "CASCADE",
+        allowNull: false,
+        references: {
+          model: 'Students',
+          key: 'id'
+        }
       },
       createdAt: {
         allowNull: false,
@@ -34,6 +36,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Listings');
+    return queryInterface.dropTable('watchlist_students');
   }
 };
