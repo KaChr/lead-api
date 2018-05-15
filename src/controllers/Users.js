@@ -170,23 +170,62 @@ export default {
     });
   },
 
-  /*update_student(req, res) {
-    DB.Students.update({
-      first_name: 'Maxy-boi-boi'
-    }, {  
-      where: {id: 1}
+  update_student(req, res) {
+    const main = require('../models/index');
+
+    DB.Students.find({
+      where: {
+        user_id: req.params.id
+      },
+      attributes: ['id']
     })
-    .then((student) => {
-      res.status(200).json({
-        message: 'Success'
-      });
-    })
-    .catch((err) => {
-      res.status(500).json({
-        error: err
+    .then((user) => {
+      console.log(user);
+      res.status(200).send(user);
+      return main.sequelize.transaction().then((t) => {
+      return DB.User.update({
+        email: req.body.email
+      }, {  
+        where: {
+          userId: req.params.id
+        }
+      }, {transaction: t})
+      .then((response) => {
+        console.log(response);
+        res.status(200).send(response);
+
+        return DB.Students.update({
+          first_name: req.body.first_name,
+          last_name: req.body.last_name,
+          phone: req.body.phone,
+          street_adress: req.body.street_adress,
+          social_security_number: req.body.social_security_number,
+          country_id: req.body.country_id,
+          city_id: req.body.city_id
+        }, {  
+          where: {
+            id: user.id
+          }
+        }, {transaction: t})
+        .then((response2) => {
+          res.status(200).send(response2);
+          return t.commit();
+        })
+        .catch((error2) => {
+          console.log(error2);
+          return t.rollback();
+        });
+      }).catch((err) => {
+        console.log(err);
+        return t.rollback();
       });
     });
-  },*/
+    })
+    .catch((error3) => {
+      console.log(error3);
+      return t.rollback();
+    });
+  },
 
   create_company(req, res) {
     const main = require('../models/index');

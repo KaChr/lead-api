@@ -24,6 +24,7 @@ export default (app) => {
 
   /* Students */
   app.post('/register-student', C.Users.create_student)
+  app.put('/update-student/:id', C.Users.update_student)
   // app.delete('/delete-student/:id', checkAuth, C.Users.destroy_student)
   // app.put('/update-student/:id', C.Users.update_student)
 
