@@ -1,12 +1,10 @@
-import Companies from "../controllers/Companies";
-
 'use strict';
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
       return queryInterface.bulkInsert('Companies', [{
         name: 'Very good company1',
-        information: 'miche bra bra bra' ,
+        information: 'miche bra bra bra',
         phone: '0704343233',
         street_adress: 'some adress 1',
         postal_code: 29166,
@@ -16,11 +14,11 @@ module.exports = {
         city_id: 1,
         user_id: 1,
         createdAt: new Date(),
-        updatedAt:  new Date()
+        updatedAt: new Date()
       },
       {
         name: 'Very good company2',
-        information: 'miche bra bra bra' ,
+        information: 'miche bra bra bra',
         phone: '0704343233',
         street_adress: 'some adress 2',
         postal_code: 29166,
@@ -34,7 +32,7 @@ module.exports = {
       },
       { 
         name: 'Very good company3',
-        information: 'miche bra bra bra' ,
+        information: 'miche bra bra bra',
         phone: '0704343233',
         street_adress: 'some adress 3',
         postal_code: 29166,
@@ -42,7 +40,7 @@ module.exports = {
         website: 'goodcompany3.com',
         country_id: 3,
         city_id: 3,
-        user_id: 3 ,
+        user_id: 3,
         createdAt: new Date(),
         updatedAt: new Date() 
       }], {});
@@ -53,7 +51,7 @@ module.exports = {
     
       
       
-      return queryInterface.bulkDelete(Companies, null, {});
+      return queryInterface.bulkDelete('Companies', null, {});
     
   }
 };

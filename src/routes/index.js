@@ -54,4 +54,11 @@ export default (app) => {
   app.get('/companies/:id', C.Companies.find)
   app.put('/companies/:id', C.Companies.update)
   app.delete('/companies/:id', C.Companies.destroy)
+
+  /* Cities */
+  app.get('/cities', C.Cities.list)
+  app.post('/cities', C.Cities.create)
+  app.get('/cities/:id', C.Cities.find)
+  app.put('/cities/:id', C.Cities.update)
+  app.delete('/cities/:id', C.Cities.destroy)
 }
