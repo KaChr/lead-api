@@ -9,7 +9,22 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       profile_student_id: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        onDelete: "CASCADE",
+        allowNull: false,
+        references: {
+          model: 'Profile_students',
+          key: 'id'
+        }
+      },
+      link_student_profile_id: {
+        type: Sequelize.INTEGER,
+        onDelete: "CASCADE",
+        allowNull: false,
+        references: {
+          model: 'Link_students_profiles',
+          key: 'id'
+        }
       },
       createdAt: {
         allowNull: false,

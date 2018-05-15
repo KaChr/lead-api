@@ -58,7 +58,7 @@ export default {
         pub_date: req.body.pub_date,
         information: req.body.information,
         intern_amount: req.body.intern_amount,
-        profile_company_id: req.body.profile_company_id
+        company_id: req.body.company_id
         })
         .then(function(data) {
             res.status(200).send(data);
@@ -73,7 +73,7 @@ export default {
                 pub_date: req.body.pub_date,
                 information: req.body.information,
                 intern_amount: req.body.intern_amount,
-                profile_company_id: req.body.profile_company_id
+                company_id: req.body.company_id
             },
             {where: {id:req.params.id}}
           )

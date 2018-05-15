@@ -2,12 +2,26 @@
 module.exports = (sequelize, DataTypes) => {
   var watchlist_students = sequelize.define('watchlist_students', {
     company_id: DataTypes.INTEGER,
-    student_id: DataTypes.INTEGER,
-    timestamp: DataTypes.DATE
+    student_id: {
+      type: DataTypes.INTEGER,
+      unique: true
+    }
   }, {
     classMethods: {
       associate: function(models) {
-        // associations can be defined here
+        watchlist_students.belongsTo(models.Companies, {
+          onDelete: "CASCADE",
+          foreignKey: {
+            allowNull: false
+          }
+        });
+
+        watchlist_students.belongsTo(models.Students, {
+          onDelete: "CASCADE",
+          foreignKey: {
+            allowNull: false
+          }
+        });
       }
     }
   });

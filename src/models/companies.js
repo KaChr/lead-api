@@ -13,15 +13,43 @@ export default (sequelize, DataTypes) => {
     website: DataTypes.STRING,
     country_id: DataTypes.INTEGER,
     city_id: DataTypes.INTEGER,
-    user_id: DataTypes.INTEGER
+    user_id: {
+      type: DataTypes.INTEGER,
+      unique: true
+    }
   });
 
   Companies.associate = (models) => {
     // associations can be defined here
     /**
      * Listings.belongsTo(models.Company)
-     */
+     */ 
+
+    Companies.belongsTo(models.User, {
+      onDelete: "CASCADE",
+      foreignKey: {
+        allowNull: false
+      }
+    });
+
+    Companies.belongsTo(models.cities, {
+      onDelete: "CASCADE",
+      foreignKey: {
+        allowNull: false
+      }
+    });
+
+    Companies.belongsTo(models.countries, {
+      onDelete: "CASCADE",
+      foreignKey: {
+        allowNull: false
+      }
+    });
+
+    Companies.hasMany(models.Listings);
+
+    Companies.hasMany(models.watchlist_students);
   };
 
   return Companies;
-};
+}; 
