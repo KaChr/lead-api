@@ -22,14 +22,12 @@ module.exports = (sequelize, DataTypes) => {
         });
 
         Schools.belongsTo(models.cities, {
-          onDelete: "CASCADE",
           foreignKey: {
             allowNull: false
           }
         });
 
         Schools.belongsTo(models.countries, {
-          onDelete: "CASCADE",
           foreignKey: {
             allowNull: false
           }

@@ -34,7 +34,6 @@ module.exports = {
       },
       country_id: {
         type: Sequelize.INTEGER,
-        onDelete: "CASCADE",
         allowNull: false,
         references: {
           model: 'countries',
@@ -43,7 +42,6 @@ module.exports = {
       },
       city_id: {
         type: Sequelize.INTEGER,
-        onDelete: "CASCADE",
         allowNull: false,
         references: {
           model: 'cities',

@@ -27,7 +27,6 @@ module.exports = (sequelize, DataTypes) => {
         });
 
         Profile_students.belongsTo(models.cities, {
-          onDelete: "CASCADE",
           foreignKey: {
             allowNull: false
           }

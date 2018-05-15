@@ -2,10 +2,7 @@
 module.exports = (sequelize, DataTypes) => {
   var watchlist_students = sequelize.define('watchlist_students', {
     company_id: DataTypes.INTEGER,
-    student_id: {
-      type: DataTypes.INTEGER,
-      unique: true
-    }
+    student_id: DataTypes.INTEGER
   }, {
     classMethods: {
       associate: function(models) {
