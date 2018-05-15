@@ -17,13 +17,14 @@ export default (app) => {
   app.get('/users', authBearer(), C.Users.list)
   app.get('/users/:userId', authBearer(), C.Users.find)
   app.put('/users/:userId', authBearer(), C.Users.update)
-  app.delete('/users/:userId', authBearer(), C.Users.destroy)
+  app.delete('/delete-user/:id', checkAuth, C.Users.destroy_user)
   app.post('/verify-token', checkAuth, C.Users.verify_token)
   app.get('/user-type/:id', checkAuth, C.Users.user_type)
   app.post('/login', C.Users.login)
 
   /* Students */
   app.post('/register-student', C.Users.create_student)
+  // app.delete('/delete-student/:id', checkAuth, C.Users.destroy_student)
   // app.put('/update-student/:id', C.Users.update_student)
 
   /* Companies */
@@ -47,4 +48,11 @@ export default (app) => {
   app.get('/listings/:id', C.Listings.find)
   app.put('/listings/:id', C.Listings.update)
   app.delete('/listings/:id', C.Listings.destroy)
+
+  /* Companies */
+  app.get('/companies', C.Companies.list)
+  app.post('/companies', C.Companies.create)
+  app.get('/companies/:id', C.Companies.find)
+  app.put('/companies/:id', C.Companies.update)
+  app.delete('/companies/:id', C.Companies.destroy)
 }

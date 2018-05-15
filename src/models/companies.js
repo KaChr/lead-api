@@ -5,7 +5,7 @@ export default (sequelize, DataTypes) => {
   const Companies = sequelize.define('Companies', {
     name: DataTypes.STRING(50),
     information: DataTypes.TEXT,
-    email: DataTypes.STRING(50),
+    // email: DataTypes.STRING(50),
     phone: DataTypes.STRING(50),
     street_adress: DataTypes.STRING(50),
     postal_code: DataTypes.INTEGER,

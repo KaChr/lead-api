@@ -9,14 +9,14 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       name: {
-        type: Sequelize.TEXT
+        type: Sequelize.STRING
       },
       information: {
-        type: Sequelize.STRING
+        type: Sequelize.TEXT
       },
-      email: {
+      /*email: {
         type: Sequelize.STRING
-      },
+      },*/
       phone: {
         type: Sequelize.STRING
       },

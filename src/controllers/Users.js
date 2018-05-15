@@ -35,21 +35,21 @@ export default {
       const password = BCrypt.hashSync(Pwd.toString(), salt);
       
       return DB.User.create({
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
+        /*firstName: req.body.firstName,
+        lastName: req.body.lastName,*/
         email: req.body.email,
-        role: req.body.role,
-        password: password,
-        redirect: req.body.redirect,
-        status: req.body.status
+        // role: req.body.role,
+        password: password
+        /*redirect: req.body.redirect,
+        status: req.body.status*/
       }, {transaction: t})
       .then((response) => {
         console.log(response.userId);
 
         return DB.Students.create({
-            first_name: response.firstName,
-            last_name: response.lastName,
-            email: response.email,
+            first_name: req.body.first_name,
+            last_name: req.body.last_name,
+            // email: response.email,
             phone: req.body.phone,
             street_adress: req.body.street_adress,
             social_security_number: req.body.social_security_number,
@@ -196,23 +196,26 @@ export default {
       const password = BCrypt.hashSync(Pwd.toString(), salt);
       
       return DB.User.create({
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
+        /*firstName: req.body.firstName,
+        lastName: req.body.lastName,*/
         email: req.body.email,
-        role: req.body.role,
-        password: password,
-        redirect: req.body.redirect,
-        status: req.body.status
+        // role: req.body.role,
+        password: password
+        /*redirect: req.body.redirect,
+        status: req.body.status*/
       }, {transaction: t})
       .then((response) => {
         console.log(response);
 
         return DB.Companies.create({
             name: req.body.name,
-            email: response.email,
+            // email: response.email,
+            information: req.body.information,
             phone: req.body.phone,
             street_adress: req.body.street_adress,
+            postal_code: req.body.postal_code,
             logo_url: req.body.logo_url,
+            website: req.body.website,
             country_id: req.body.country_id,
             city_id: req.body.city_id,
             user_id: response.userId
@@ -240,20 +243,20 @@ export default {
       const password = BCrypt.hashSync(Pwd.toString(), salt);
       
       return DB.User.create({
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
+        /*firstName: req.body.firstName,
+        lastName: req.body.lastName,*/
         email: req.body.email,
-        role: req.body.role,
-        password: password,
-        redirect: req.body.redirect,
-        status: req.body.status
+        // role: req.body.role,
+        password: password
+        /*redirect: req.body.redirect,
+        status: req.body.status*/
       }, {transaction: t})
       .then((response) => {
         console.log(response);
 
         return DB.Schools.create({
             name: req.body.name,
-            email: response.email,
+            // email: response.email,
             phone: req.body.phone,
             street_adress: req.body.street_adress,
             country_id: req.body.country_id,
@@ -271,6 +274,25 @@ export default {
       }).catch((err) => {
         console.log(err);
         return t.rollback();
+      });
+    });
+  },
+
+  destroy_user(req, res) {
+    DB.User.destroy({
+      where: {
+        userId: req.params.id
+      }
+    })
+    .then((result) => {
+      console.log(result);
+      return res.status(200).json({
+        message: 'User successfully deleted'
+      });
+    }).catch((error) => {
+      console.log(error);
+      return res.status(200).json({
+        message: 'Failure in deleting user'
       });
     });
   },

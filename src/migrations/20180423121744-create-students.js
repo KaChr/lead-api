@@ -14,9 +14,9 @@ module.exports = {
       last_name: {
         type: Sequelize.STRING
       },
-      email: {
+      /*email: {
         type: Sequelize.STRING
-      },
+      },*/
       phone: {
         type: Sequelize.STRING
       },
