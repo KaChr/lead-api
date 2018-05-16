@@ -62,4 +62,11 @@ export default (app) => {
   app.get('/cities/:id', C.Cities.find)
   app.put('/cities/:id', C.Cities.update)
   app.delete('/cities/:id', C.Cities.destroy)
+
+  /* Countries */
+  app.get('/countries', C.Countries.list)
+  app.post('/countries', C.Countries.create)
+  app.get('/countries/:id', C.Countries.find)
+  app.put('/countries/:id', C.Countries.update)
+  app.delete('/countries/:id', C.Countries.destroy)
 }

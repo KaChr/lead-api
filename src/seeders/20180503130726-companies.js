@@ -43,6 +43,20 @@ module.exports = {
         user_id: 3,
         createdAt: new Date(),
         updatedAt: new Date() 
+      },
+      { 
+        name: 'Very good company4',
+        information: 'miche bra bra bra',
+        phone: '0704343233',
+        street_adress: 'some adress 4',
+        postal_code: 29166,
+        logo_url: 'www.logo.com',
+        website: 'goodcompany4.com',
+        country_id: 4,
+        city_id: 4,
+        user_id: 4,
+        createdAt: new Date(),
+        updatedAt: new Date() 
       }], {});
     
   },

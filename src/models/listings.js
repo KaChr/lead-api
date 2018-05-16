@@ -3,7 +3,7 @@
 export default (sequelize, DataTypes) => {
   const Listings = sequelize.define('Listings', {
     title: DataTypes.STRING(50),
-    pub_date: DataTypes.DATEONLY,
+    pub_date: DataTypes.DATE,
     information: DataTypes.TEXT,
     intern_amount: DataTypes.INTEGER,
     company_id: {
