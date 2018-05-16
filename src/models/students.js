@@ -30,22 +30,11 @@ export default (sequelize, DataTypes) => {
       }
     });
 
-    Students.belongsTo(models.cities, {
-      foreignKey: {
-        allowNull: false
-      }
-    });
-
-    Students.belongsTo(models.countries, {
-      foreignKey: {
-        allowNull: false
-      }
-    });
+    Students.belongsTo(models.cities);
+    Students.belongsTo(models.countries);
 
     Students.hasMany(models.watchlist_students);
-
     Students.hasMany(models.profile_schools);
-
     Students.hasOne(models.Profile_students);
   };
 

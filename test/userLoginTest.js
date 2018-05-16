@@ -25,8 +25,8 @@ describe('UsersController', () => {
                         "phone": "070-654324",
                         "street_adress": "Firstvagen 3",
                         "social_security_number": "561209-0923",
-                        "country_id": 2,
-                        "city_id": 3
+                        "country_id": 1,
+                        "city_id": 1
                     }
                 };
 
@@ -53,8 +53,8 @@ describe('UsersController', () => {
                         "postal_code": 12354,
                         "logo_url": "http://something.com",
                         "website": "http://somewebsite.com",
-                        "country_id": 2,
-                        "city_id": 3
+                        "country_id": 1,
+                        "city_id": 1
                     }
                 };
 
@@ -77,8 +77,8 @@ describe('UsersController', () => {
                         "password": "school1",
                         "phone": "070-654324",
                         "street_adress": "Firstvagen 3",
-                        "country_id": 2,
-                        "city_id": 3
+                        "country_id": 1,
+                        "city_id": 1
                     }
                 };
 
