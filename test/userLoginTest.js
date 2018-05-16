@@ -225,6 +225,92 @@ describe('UsersController', () => {
         });
     });
 
+    describe('updateAction', () => {
+        describe('student', () => {
+            it('should return a 200 response if the student was updated', (done) => {
+                const options = {
+                    url: baseUrl + '/update-student/' + studentId,
+                    method: 'PUT',
+                    headers: {
+                        Authorization: 'Bearer ' + tokenStudent
+                    },
+                    json: {
+                        "email": "later@one.com",
+                        "first_name": "LaterStudent",
+                        "last_name": "LaterOne",
+                        "phone": "111-111111",
+                        "street_adress": "Secondvagen 99",
+                        "social_security_number": "666666-6666",
+                        "country_id": 4,
+                        "city_id": 4
+                    }
+                };
+                
+                request(options, (error, httpResponse, body) => {
+                    // console.log(body);
+                    expect(httpResponse.statusCode).to.equal(200);
+                    done();
+                });
+            });
+        });
+
+        describe('company', () => {
+            it('should return a 200 response if the company was updated', (done) => {
+                const options = {
+                    url: baseUrl + '/update-company/' + companyId,
+                    method: 'PUT',
+                    headers: {
+                        Authorization: 'Bearer ' + tokenCompany
+                    },
+                    json: {
+                        "email": "latercompany@two.com",
+                        "name": "Later Company 2",
+                        "information": "Text2 text2 text2.",
+                        "phone": "222-222222",
+                        "street_adress": "Secondvagen 99",
+                        "postal_code": 88888,
+                        "logo_url": "http://secondsomething.com",
+                        "website": "http://secondsomewebsite.com",
+                        "country_id": 3,
+                        "city_id": 3
+                    }
+                };
+                
+                request(options, (error, httpResponse, body) => {
+                    // console.log(body);
+                    expect(httpResponse.statusCode).to.equal(200);
+                    done();
+                });
+            });
+        });
+
+        describe('school', () => {
+            it('should return a 200 response if the school was updated', (done) => {
+                const options = {
+                    url: baseUrl + '/update-school/' + schoolId,
+                    method: 'PUT',
+                    headers: {
+                        Authorization: 'Bearer ' + tokenSchool
+                    },
+                    json: {
+                        "email": "secondschool@two.com",
+                        "name": "Later School 2",
+                        "phone": "333-333333",
+                        "street_adress": "Secondvagen 77",
+                        "country_id": 2,
+                        "city_id": 2
+                    }
+                };
+                
+                request(options, (error, httpResponse, body) => {
+                    // console.log(body);
+                    expect(httpResponse.statusCode).to.equal(200);
+                    done();
+                });
+            });
+        });
+    });
+
     describe('deleteAction', () => {
         describe('student', () => {
             it('should return a 200 response if the student was deleted', (done) => {
