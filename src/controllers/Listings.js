@@ -36,6 +36,13 @@ export default {
     list(req, res) {
         DB.Listings.findAll()
         .then(function(data) {
+            data.map((list) => {
+                DB.Companies.find(
+                    {where: {
+                        company_id: list.company_id
+                    }}
+                )
+            })
           res.status(200).send(data);
         })
         .catch(function(error) {
