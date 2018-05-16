@@ -24,17 +24,17 @@ export default (app) => {
 
   /* Students */
   app.post('/register-student', C.Users.create_student)
-  app.put('/update-student/:id', C.Users.update_student)
+  app.put('/update-student/:id', checkAuth, C.Users.update_student)
   // app.delete('/delete-student/:id', checkAuth, C.Users.destroy_student)
   // app.put('/update-student/:id', C.Users.update_student)
 
   /* Companies */
   app.post('/register-company', C.Users.create_company)
-  app.put('/update-company/:id', C.Users.update_company)
+  app.put('/update-company/:id', checkAuth, C.Users.update_company)
 
   /* Schools */
   app.post('/register-school', C.Users.create_school)
-  app.put('/update-school/:id', C.Users.update_school)
+  app.put('/update-school/:id', checkAuth, C.Users.update_school)
   
   /* Tests */
   app.get('/tests', C.Tests.list)
