@@ -37,7 +37,15 @@ export default {
             }]
         })
         .then((data) => {
-            res.status(200).send(data);
+            const companieTemp = [];
+
+            data.map((dat) => {
+                if(dat.Company !== null) {
+                    companieTemp.push(dat);
+                }
+            });
+
+            res.status(200).send(companieTemp);
         })
         .catch((error) => {
             res.status(400).send(error);
