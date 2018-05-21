@@ -3,10 +3,10 @@
 export default (sequelize, DataTypes) => {
   const Listings = sequelize.define('Listings', {
     title: DataTypes.STRING(50),
-    pub_date: DataTypes.DATEONLY,
-    information: DataTypes.TEXT,
+    pub_date: DataTypes.DATE,
+    information_listing: DataTypes.TEXT,
     intern_amount: DataTypes.INTEGER,
-    profile_company_id: DataTypes.INTEGER,
+    company_id: DataTypes.INTEGER
   })
 
   Listings.associate = (models) => {
@@ -15,7 +15,12 @@ export default (sequelize, DataTypes) => {
        * Listings.belongsTo(models.Company)
        */
 
-      
+    Listings.belongsTo(models.Companies, {
+      onDelete: "CASCADE",
+      foreignKey: {
+        allowNull: false
+      }
+    });      
   };
 
   return Listings;

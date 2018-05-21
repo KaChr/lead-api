@@ -10,16 +10,16 @@ export default (sequelize, DataTypes) => {
       primaryKey: true,
       autoIncrement: true
     },
-    firstName: DataTypes.STRING,
-    lastName: DataTypes.STRING,
+    // firstName: DataTypes.STRING,
+    // lastName: DataTypes.STRING,
     email: {
       type: DataTypes.STRING,
       unique: true
     },
-    role: DataTypes.STRING,
-    password: DataTypes.STRING,
-    redirect: DataTypes.STRING,
-    status: DataTypes.STRING
+    // role: DataTypes.STRING,
+    password: DataTypes.STRING
+    // redirect: DataTypes.STRING,
+    // status: DataTypes.STRING
   })
 
   /*User.prototype.authenticate = function(password) {
@@ -39,6 +39,8 @@ export default (sequelize, DataTypes) => {
     })*/
 
     User.hasOne(models.Students);
+    User.hasOne(models.Schools);
+    User.hasOne(models.Companies, {foreignKey: 'user_id'});
   };
 
   return User;

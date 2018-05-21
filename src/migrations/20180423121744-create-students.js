@@ -14,9 +14,9 @@ module.exports = {
       last_name: {
         type: Sequelize.STRING
       },
-      email: {
+      /*email: {
         type: Sequelize.STRING
-      },
+      },*/
       phone: {
         type: Sequelize.STRING
       },
@@ -27,10 +27,20 @@ module.exports = {
         type: Sequelize.STRING
       },
       country_id: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'countries',
+          key: 'id'
+        }
       },
       city_id: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'cities',
+          key: 'id'
+        }
       },
       user_id: {
         type: Sequelize.INTEGER,

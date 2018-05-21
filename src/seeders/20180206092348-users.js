@@ -3,12 +3,18 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.bulkInsert('Users', [
+      user('superadmin@email.com', mockDateTime(20)),
+      user('admin@email.com', mockDateTime(16)),
+      user('user@email.com', mockDateTime(12)),
+      user('referrer@email.com', mockDateTime(8)),
+     /* user('redirect@email.com', mockDateTime(4)),
+      user('blocked@email.com', mockDateTime(0)),
       user('Super Admin', 'User', 'superadmin@email.com', 'Super Admin', mockDateTime(20)),
       user('Admin', 'User', 'admin@email.com', 'Admin', mockDateTime(16)),
       user('Default', 'User', 'user@email.com', 'User', mockDateTime(12)),
       user('Referrer', 'User', 'referrer@email.com', 'User', mockDateTime(8)),
       user('Redirect', 'User', 'redirect@email.com', 'User', mockDateTime(4)),
-      user('Blocked', 'User', 'blocked@email.com', 'User', mockDateTime(0), 'blocked'),
+      user('Blocked', 'User', 'blocked@email.com', 'User', mockDateTime(0), 'blocked'),*/
     ], {})
   },
 
@@ -20,17 +26,13 @@ module.exports = {
 const BCrypt = require('bcryptjs')
 const Moment = require('moment')
 
-function user(firstName, lastName, email, role, date, status='active') {
+function user(email, date) {
   const salt = BCrypt.genSaltSync(10)
   const password = BCrypt.hashSync('password', salt)
   const newDate = new Date(date)
   const data = {
-    firstName,
-    lastName,
     email,
-    role,
     password,
-    status,
     createdAt: newDate,
     updatedAt: newDate
   }
