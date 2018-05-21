@@ -4,12 +4,9 @@ export default (sequelize, DataTypes) => {
   const Listings = sequelize.define('Listings', {
     title: DataTypes.STRING(50),
     pub_date: DataTypes.DATE,
-    information: DataTypes.TEXT,
+    information_listing: DataTypes.TEXT,
     intern_amount: DataTypes.INTEGER,
-    company_id: {
-      type: DataTypes.INTEGER,
-      unique: true
-    }
+    company_id: DataTypes.INTEGER
   })
 
   Listings.associate = (models) => {

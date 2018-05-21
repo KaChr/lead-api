@@ -14,7 +14,7 @@ module.exports = {
       pub_date: {
         type: Sequelize.DATEONLY
       },
-      information: {
+      information_listing: {
         type: Sequelize.TEXT
       },
       intern_amount: {

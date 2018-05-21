@@ -31,23 +31,73 @@ import DB from '../models'
         })
     })
 }*/
+/*DB.Listings.findAll({
+    include: [{
+        model: DB.Companies,
+        where: { id: Sequelize.col('Listings.company_id') }
+    }]
+}) */
+
 
 export default {
     list(req, res) {
-        DB.Listings.findAll()
-        .then(function(data) {
-            data.map((list) => {
-                DB.Companies.find(
-                    {where: {
-                        company_id: list.company_id
-                    }}
-                )
-            })
-          res.status(200).send(data);
+        DB.User.findAll({
+            attributes: [
+                'userId',
+                'email'
+            ],
+            include: [{
+                attributes: [
+                    'id',
+                    'name',
+                    'information',
+                    'phone',
+                    'street_adress',
+                    'postal_code',
+                    'logo_url',
+                    'website',
+                    'country_id',
+                    'city_id',
+                    'user_id'
+                ],
+                model: DB.Companies,
+                include: [{
+                    attributes: [
+                        'id',
+                        'title',
+                        'pub_date',
+                        'information_listing',
+                        'intern_amount',
+                        'company_id'
+                    ],
+                    model: DB.Listings
+                }]
+            }]
         })
-        .catch(function(error) {
+        .then((data) => {
+            res.status(200).send(data);
+        })
+        .catch((error) => {
+            res.status(400).send(error);
+        });
+        
+        
+       // .then(function(data) {
+         //   data.map((list) => {
+           //     DB.Companies.find(
+             //       {where: {
+               //         company_id: list.company_id
+                 //   }}   
+            //    )
+           //     .then(function(data) {
+
+             //   })
+               // res.status(200).send(data);
+          //  })
+        //})
+        /*.catch(function(error) {
           res.status(400).send(error);
-        })
+        })*/
     },
     find(req, res) {
         DB.Listings.findById(req.params.id)

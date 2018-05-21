@@ -40,7 +40,7 @@ export default (sequelize, DataTypes) => {
 
     User.hasOne(models.Students);
     User.hasOne(models.Schools);
-    User.hasOne(models.Companies);
+    User.hasOne(models.Companies, {foreignKey: 'user_id'});
   };
 
   return User;
