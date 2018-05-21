@@ -2,7 +2,7 @@ import DB from '../models'
 
 export default {
     list(req, res) {
-        DB.Cities.findAll()
+        DB.cities.findAll()
         .then(function(data) {
           res.status(200).send(data);
         })
@@ -11,7 +11,7 @@ export default {
         })
     },
     find(req, res) {
-        DB.Cities.findById(req.params.id)
+        DB.cities.findById(req.params.id)
         .then(function(data) {
             res.status(200).send(data);
         })
@@ -20,7 +20,7 @@ export default {
         })
     },
     create(req, res) {
-       return DB.Cities.create({
+       return DB.cities.create({
         res,
         city_name: req.body.city_name
 
@@ -34,7 +34,7 @@ export default {
         })
     },
     update(req, res) {
-        DB.Cities.update(
+        DB.cities.update(
             {   res,
                 city_name: req.body.city_name
                 
@@ -50,10 +50,10 @@ export default {
     
     },
     destroy(req, res) {
-        DB.Cities.destroy(
+        DB.cities.destroy(
             {where: {id:req.params.id}}
         )
-        .then((Cities) => {
+        .then((cities) => {
             res.status(200).json({
                 message: 'Success'
             });

@@ -34,8 +34,8 @@ export default (sequelize, DataTypes) => {
     Companies.belongsTo(models.cities);
     Companies.belongsTo(models.countries);
     
-    Companies.hasMany(models.Listings);
-    Companies.hasMany(models.watchlist_students);
+    Companies.hasMany(models.Listings, { foreignKey: 'company_id'});
+    Companies.hasMany(models.watchlist_students, { foreignKey: 'company_id'});
   };
 
   return Companies;

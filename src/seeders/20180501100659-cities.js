@@ -14,7 +14,7 @@ module.exports = {
         updatedAt: new Date()
       }, 
       {
-        city_name:'Stockholm',
+        city_name:'Lidingö',
         createdAt: new Date(),
         updatedAt: new Date()
       },
