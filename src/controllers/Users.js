@@ -130,7 +130,6 @@ export default {
         console.log(response.userId);
 
         return DB.Students.create({
-            attributes: ['first_name', 'last_name'],
             first_name: req.body.first_name,
             last_name: req.body.last_name,
             age: req.body.age,
