@@ -20,6 +20,7 @@ describe('UsersController', () => {
                     json: {
                         "first_name": "Student",
                         "last_name": "One",
+                        "age": 34,
                         "email": "student@one.com",
                         "password": "student1",
                         "phone": "070-654324",
@@ -92,24 +93,6 @@ describe('UsersController', () => {
     });
 
     describe('loginAction', () => {
-        /*before(() => {
-            // locally "global" setup
-            console.log('before');
-        });
-    
-        beforeEach(() => {
-            console.log('beforeEach');
-        });
-    
-        afterEach(() => {
-            console.log('afterEach');
-        });
-    
-        after(() => {
-            // locally "global" teardown
-            console.log('after');
-        });*/
-
         describe('student', () => {
             it('should return a 200 response if the student logged in', (done) => {
                 const options = {
@@ -238,6 +221,7 @@ describe('UsersController', () => {
                         "email": "later@one.com",
                         "first_name": "LaterStudent",
                         "last_name": "LaterOne",
+                        "age": 56,
                         "phone": "111-111111",
                         "street_adress": "Secondvagen 99",
                         "social_security_number": "666666-6666",

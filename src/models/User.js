@@ -38,8 +38,8 @@ export default (sequelize, DataTypes) => {
       foreignKey: 'userId'
     })*/
 
-    User.hasOne(models.Students);
-    User.hasOne(models.Schools);
+    User.hasOne(models.Students, {foreignKey: 'user_id'});
+    User.hasOne(models.Schools, {foreignKey: 'user_id'});
     User.hasOne(models.Companies, {foreignKey: 'user_id'});
   };
 

@@ -130,8 +130,10 @@ export default {
         console.log(response.userId);
 
         return DB.Students.create({
+            attributes: ['first_name', 'last_name'],
             first_name: req.body.first_name,
             last_name: req.body.last_name,
+            age: req.body.age,
             phone: req.body.phone,
             street_adress: req.body.street_adress,
             social_security_number: req.body.social_security_number,
@@ -265,6 +267,7 @@ export default {
         return DB.Students.update({
           first_name: req.body.first_name,
           last_name: req.body.last_name,
+          age: req.body.age,
           phone: req.body.phone,
           street_adress: req.body.street_adress,
           social_security_number: req.body.social_security_number,

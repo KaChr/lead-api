@@ -72,4 +72,11 @@ export default (app) => {
   app.get('/countries/:id', C.Countries.find)
   app.put('/countries/:id', C.Countries.update)
   app.delete('/countries/:id', C.Countries.destroy)
+
+  /* ProfileStudents */
+  app.get('/profile-students', C.Students.list)
+  app.get('/profile-students/:id', C.Students.find)
+  app.post('/profile-students/:id', C.Students.create)
+  app.put('/profile-students/:id', C.Students.update)
+  app.delete('/profile-students/:id', C.Students.destroy)
 }

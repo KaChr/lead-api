@@ -17,6 +17,7 @@ module.exports = (sequelize, DataTypes) => {
         Schools.belongsTo(models.User, {
           onDelete: "CASCADE",
           foreignKey: {
+            name: 'user_id',
             allowNull: false
           }
         });
