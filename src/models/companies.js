@@ -27,6 +27,7 @@ export default (sequelize, DataTypes) => {
     Companies.belongsTo(models.User, {
       onDelete: "CASCADE",
       foreignKey: {
+        name: 'user_id',
         allowNull: false
       }
     });

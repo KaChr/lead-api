@@ -5,6 +5,7 @@ import Listings from './Listings'
 import Companies from './Companies'
 import Cities from './Cities'
 import Countries from './Countries'
+import Students from './Students'
 
 export default {
   Sessions,
@@ -13,5 +14,6 @@ export default {
   Listings,
   Companies,
   Cities,
-  Countries
+  Countries,
+  Students
 }

@@ -8,12 +8,12 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      name: {
+      /*name: {
         type: Sequelize.STRING
       },
       age: {
         type: Sequelize.INTEGER
-      },
+      },*/
       city_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
@@ -48,6 +48,7 @@ module.exports = {
       },
       student_id: {
         type: Sequelize.INTEGER,
+        unique: true,
         onDelete: "CASCADE",
         allowNull: false,
         references: {

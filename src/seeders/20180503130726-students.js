@@ -5,6 +5,7 @@ module.exports = {
       return queryInterface.bulkInsert('Students', [{
         first_name: 'Maja',
         last_name: 'Baja',
+        age: 23,
         phone: '070-6525457',
         street_adress: 'Nissegatan 7',
         social_security_number: '761122-0395',

@@ -1,11 +1,10 @@
 'use strict';
 
 export default (sequelize, DataTypes) => {
-// module.exports = (sequelize, DataTypes) => {
   const Students = sequelize.define('Students', {
     first_name: DataTypes.STRING(50),
     last_name: DataTypes.STRING(50),
-    // email: DataTypes.STRING(50),
+    age: DataTypes.INTEGER,
     phone: DataTypes.STRING(50),
     street_adress: DataTypes.STRING(50),
     social_security_number: DataTypes.STRING(50),
@@ -15,7 +14,7 @@ export default (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       unique: true
     }
-  }/*, {underscored: true}*/);
+  });
 
   Students.associate = (models) => {
     // console.log(models.User);
@@ -26,6 +25,7 @@ export default (sequelize, DataTypes) => {
     Students.belongsTo(models.User, {
       onDelete: "CASCADE",
       foreignKey: {
+        name: 'user_id',
         allowNull: false
       }
     });
