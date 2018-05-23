@@ -4,6 +4,11 @@ module.exports = {
   up: (queryInterface, Sequelize) => {
     
       return queryInterface.bulkInsert('cities', [{
+        city_name:'Ej angivet',
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
         city_name:'Stockholm',
         createdAt: new Date(),
         updatedAt: new Date()
