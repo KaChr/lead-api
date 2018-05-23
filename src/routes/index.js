@@ -19,7 +19,7 @@ export default (app) => {
   // app.put('/users/:userId', authBearer(), C.Users.update)
   app.delete('/delete-user/:id', checkAuth, C.Users.destroy_user)
   app.post('/verify-token', checkAuth, C.Users.verify_token)
-  app.get('/user-type/:id', checkAuth, C.Users.user_type)
+  app.get('/user-type/:id', C.Users.user_type)
   app.post('/login', C.Users.login)
 
   /* Students */
@@ -35,7 +35,7 @@ export default (app) => {
   /* Schools */
   app.post('/register-school', C.Users.create_school)
   app.put('/update-school/:id', checkAuth, C.Users.update_school)
-  
+
   /* Tests */
   app.get('/tests', C.Tests.list)
   app.get('/tests/custom-method', C.Tests.customMethod) // Should be placed before other requests with dynamic values
