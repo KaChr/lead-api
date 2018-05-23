@@ -61,13 +61,12 @@ export default {
         })
     },
     create(req, res) {
-       return DB.Listings.create({
-        res,
-        title: req.body.title,
-        pub_date: req.body.pub_date,
-        information: req.body.information,
-        intern_amount: req.body.intern_amount,
-        company_id: req.body.company_id
+        return DB.Listings.create({
+            title: req.body.title,
+            pub_date: req.body.pub_date,
+            information_listing: req.body.information_listing,
+            intern_amount: req.body.intern_amount,
+            company_id: req.body.company_id
         })
         .then(function(data) {
             res.status(200).send(data);
@@ -80,9 +79,8 @@ export default {
         DB.Listings.update(
             {   title: req.body.title,
                 pub_date: req.body.pub_date,
-                information: req.body.information,
-                intern_amount: req.body.intern_amount,
-                company_id: req.body.company_id
+                information_listing: req.body.information_listing,
+                intern_amount: req.body.intern_amount
             },
             {where: {id:req.params.id}}
           )
