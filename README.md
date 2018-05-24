@@ -154,8 +154,8 @@ Use the following credentials to test different API responses. Default password 
 | Blocked User      | `blocked@email.com`    | User is signed in but the account is blocked |
 | Unauthorized User | `<any invalid email>`  | Simply enter wrong `email` and/or `password` |
 
-#Next step
-
+# Next step
+```
 We have written down some notes on what we would like the next group to work with when they take over.
 
 School premium: 
@@ -186,4 +186,5 @@ Other things:
 -Be able to share listings
 -Number of views
 -Link to allabolag.se
+```
 
