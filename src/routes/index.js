@@ -51,6 +51,7 @@ export default (app) => {
   app.get('/listings/:id', C.Listings.find)
   app.put('/listings/:id', C.Listings.update)
   app.delete('/listings/:id', C.Listings.destroy)
+  app.get('/company-listings/:id', C.Listings.findCompanyListings)
 
   /* Companies */
   app.get('/companies', C.Companies.list)

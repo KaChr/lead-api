@@ -60,6 +60,52 @@ export default {
             res.status(400).send(error);
         })
     },
+    findCompanyListings(req, res) {
+        DB.User.find({
+            attributes: [
+                'userId',
+                'email'
+            ],
+            where: {
+                userId: req.params.id
+            },
+            include: [{
+                attributes: [
+                    'id',
+                    'name',
+                    'information',
+                    'phone',
+                    'street_adress',
+                    'postal_code',
+                    'logo_url',
+                    'website',
+                    'country_id',
+                    'city_id',
+                    'user_id'
+                ],
+                model: DB.Companies,
+                include: [{
+                    attributes: [
+                        'id',
+                        'title',
+                        'pub_date',
+                        'information_listing',
+                        'intern_amount',
+                        'company_id'
+                    ],
+                    model: DB.Listings
+                }]
+            }]
+        })
+        .then((data) => {
+            console.log(data);
+            res.status(200).send(data);
+        })
+        .catch((error) => {
+            console.log(error);
+            res.status(400).send(error);
+        });
+    },
     create(req, res) {
         return DB.Listings.create({
             title: req.body.title,
