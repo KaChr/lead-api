@@ -24,13 +24,13 @@ export default (app) => {
 
   /* Students */
   app.post('/register-student', C.Users.create_student)
-  app.put('/update-student/:id', checkAuth, C.Users.update_student)
+  app.put('/update-student/:id', C.Users.update_student)
   // app.delete('/delete-student/:id', checkAuth, C.Users.destroy_student)
   // app.put('/update-student/:id', C.Users.update_student)
 
   /* Companies */
   app.post('/register-company', C.Users.create_company)
-  app.put('/update-company/:id', checkAuth, C.Users.update_company)
+  app.put('/update-company/:id', C.Users.update_company)
 
   /* Schools */
   app.post('/register-school', C.Users.create_school)
@@ -47,7 +47,7 @@ export default (app) => {
 
   /* Listings */
   app.get('/listings', C.Listings.list)
-  app.post('/listings', C.Listings.create)
+  app.post('/listings',checkAuth ,C.Listings.create)
   app.get('/listings/:id', C.Listings.find)
   app.put('/listings/:id', C.Listings.update)
   app.delete('/listings/:id', C.Listings.destroy)
@@ -80,3 +80,5 @@ export default (app) => {
   app.put('/profile-students/:id', C.Students.update)
   app.delete('/profile-students/:id', C.Students.destroy)
 }
+
+

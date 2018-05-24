@@ -104,5 +104,22 @@ export default {
         .catch((error) => {
             res.status(400).send(error);
         })
-    }
+    },
+    create(req, res) {
+        return DB.Listings.create({
+         
+         title: req.body.title,
+         pub_date: req.body.pub_date,
+         information_listing: req.body.information_listing,
+         intern_amount: req.body.intern_amount,
+         company_id: req.userData.userId
+         })
+         .then(function(data) {
+             res.status(200).send(data);
+         })
+         .catch(function(error) {
+             res.status(400).send(error);
+         })
+     }
+
 }
