@@ -8,6 +8,10 @@ if (!process.env.PG_DB) {
   }
 
   console.log('[api][sequelize] Loaded database ENV vars from .env file')
+  console.log(process.env.POSTGRES_USER)
+  console.log(process.env.POSTGRES_PASSWORD)
+  console.log(process.env.POSTGRES_DB)
+  console.log(process.env.POSTGRES_HOST)
 }
 
 module.exports = {
@@ -18,5 +22,22 @@ module.exports = {
     host: process.env.POSTGRES_HOST,
     dialect: 'postgres',
     migrationStorageTableName: 'sequelize_meta'
-  }
+  },
+  staging: {
+    username: process.env.POSTGRES_USER,
+    password: process.env.POSTGRES_PASSWORD,
+    database: process.env.POSTGRES_DB,
+    host: process.env.POSTGRES_HOST,
+    dialect: 'postgres',
+    migrationStorageTableName: 'sequelize_meta',
+  },
+  production: {
+    username: process.env.POSTGRES_USER,
+    password: process.env.POSTGRES_PASSWORD,
+    database: process.env.POSTGRES_DB,
+    host: process.env.POSTGRES_HOST,
+    dialect: 'postgres',
+    migrationStorageTableName: 'sequelize_meta',
+  },
+
 }

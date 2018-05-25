@@ -153,3 +153,38 @@ Use the following credentials to test different API responses. Default password 
 | Redirect User     | `redirect@email.com`   | When `redirect` is set with complete URL, e.i. `https://github.com/anthub-services`, user shall be redirected to external page if no location path (referrer) found on the Sign In page |
 | Blocked User      | `blocked@email.com`    | User is signed in but the account is blocked |
 | Unauthorized User | `<any invalid email>`  | Simply enter wrong `email` and/or `password` |
+
+# Next step
+```
+We have written down some notes on what we would like the next group to work with when they take over.
+
+School premium: 
+-Add and edit information about the school
+-Verify students
+-Add information about the internship (length and date)
+-Post that the students need somewhere to do their internship
+
+Student: 
+-Apply to internship (button)
+-Favorite-list
+-Get information about themself through LinkedIn
+-Be able to login with bank-id to make it easier for the school to verify students
+
+Company premium:
+-Get a higher position in the search list
+-Favorite school
+-Favorite-list over students and schools
+-Be able to review the school and the education
+-See students
+-See schools
+-Filter students by qualities
+-Be able to send a request to the school about what kind of knowledge the intern should possess
+
+Other things:
+-Add to Favorite-list
+-Favorite (button)
+-Be able to share listings
+-Number of views
+-Link to allabolag.se
+```
+

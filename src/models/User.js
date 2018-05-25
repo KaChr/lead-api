@@ -2,6 +2,7 @@
 
 import bcrypt from 'bcryptjs'
 
+// module.exports = (sequelize, DataTypes) => {
 export default (sequelize, DataTypes) => {
   const User = sequelize.define('User', {
     userId: {
@@ -9,24 +10,25 @@ export default (sequelize, DataTypes) => {
       primaryKey: true,
       autoIncrement: true
     },
-    firstName: DataTypes.STRING,
-    lastName: DataTypes.STRING,
+    // firstName: DataTypes.STRING,
+    // lastName: DataTypes.STRING,
     email: {
       type: DataTypes.STRING,
       unique: true
     },
-    role: DataTypes.STRING,
-    password: DataTypes.STRING,
-    redirect: DataTypes.STRING,
-    status: DataTypes.STRING
+    // role: DataTypes.STRING,
+    password: DataTypes.STRING
+    // redirect: DataTypes.STRING,
+    // status: DataTypes.STRING
   })
 
-  User.prototype.authenticate = function(password) {
+  /*User.prototype.authenticate = function(password) {
     return bcrypt.compareSync(password, this.password)
-  }
+  }*/
 
   User.associate = (models) => {
-    User.hasOne(models.Path, {
+    // console.log(models.Students);
+    /*User.hasOne(models.Path, {
       as: 'Paths',
       foreignKey: 'userId'
     })
@@ -34,8 +36,12 @@ export default (sequelize, DataTypes) => {
     User.hasMany(models.Session, {
       as: 'Sessions',
       foreignKey: 'userId'
-    })
-  }
+    })*/
 
-  return User
+    User.hasOne(models.Students, {foreignKey: 'user_id'});
+    User.hasOne(models.Schools, {foreignKey: 'user_id'});
+    User.hasOne(models.Companies, {foreignKey: 'user_id'});
+  };
+
+  return User;
 }
