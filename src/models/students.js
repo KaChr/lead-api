@@ -34,7 +34,9 @@ export default (sequelize, DataTypes) => {
 
     Students.hasMany(models.watchlist_students);
     Students.hasMany(models.profile_schools);
-    Students.hasOne(models.Profile_students);
+    Students.hasOne(models.Profile_students, {
+      foreignKey: 'student_id'
+    });
   };
 
   return Students;

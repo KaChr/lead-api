@@ -24,13 +24,13 @@ export default (app) => {
 
   /* Students */
   app.post('/register-student', C.Users.create_student)
-  app.put('/update-student/:id', C.Users.update_student)
+  app.put('/update-student/:id', checkAuth, C.Users.update_student)
   // app.delete('/delete-student/:id', checkAuth, C.Users.destroy_student)
   // app.put('/update-student/:id', C.Users.update_student)
 
   /* Companies */
   app.post('/register-company', C.Users.create_company)
-  app.put('/update-company/:id', C.Users.update_company)
+  app.put('/update-company/:id', checkAuth, C.Users.update_company)
 
   /* Schools */
   app.post('/register-school', C.Users.create_school)
@@ -46,40 +46,40 @@ export default (app) => {
   app.delete('/tests/:id', C.Tests.destroy)
 
   /* Listings */
-  app.get('/listings', C.Listings.list)
-  app.post('/listings', C.Listings.create)
-  app.get('/listings/:id', C.Listings.find)
-  app.put('/listings/:id', C.Listings.update)
-  app.delete('/listings/:id', C.Listings.destroy)
-  app.get('/company-listings/:id', C.Listings.findCompanyListings)
+  app.get('/listings', checkAuth, C.Listings.list)
+  app.post('/listings', checkAuth, C.Listings.create)
+  app.get('/listings/:id', checkAuth, C.Listings.find)
+  app.put('/listings/:id', checkAuth, C.Listings.update)
+  app.delete('/listings/:id', checkAuth, C.Listings.destroy)
+  app.get('/company-listings/:id', checkAuth, C.Listings.findCompanyListings)
 
   /* Companies */
-  app.get('/companies', C.Companies.list)
-  app.post('/companies', C.Companies.create)
-  app.get('/companies/:id', C.Companies.find)
-  app.put('/companies/:id', C.Companies.update)
-  app.delete('/companies/:id', C.Companies.destroy)
+  app.get('/companies', checkAuth, C.Companies.list)
+  app.post('/companies', checkAuth, C.Companies.create)
+  app.get('/companies/:id', checkAuth, C.Companies.find)
+  app.put('/companies/:id', checkAuth, C.Companies.update)
+  app.delete('/companies/:id', checkAuth, C.Companies.destroy)
 
   /* Cities */
-  app.get('/cities', C.Cities.list)
-  app.post('/cities', C.Cities.create)
-  app.get('/cities/:id', C.Cities.find)
-  app.put('/cities/:id', C.Cities.update)
-  app.delete('/cities/:id', C.Cities.destroy)
+  app.get('/cities', checkAuth, C.Cities.list)
+  app.post('/cities', checkAuth, C.Cities.create)
+  app.get('/cities/:id', checkAuth, C.Cities.find)
+  app.put('/cities/:id', checkAuth, C.Cities.update)
+  app.delete('/cities/:id', checkAuth, C.Cities.destroy)
 
   /* Countries */
-  app.get('/countries', C.Countries.list)
-  app.post('/countries', C.Countries.create)
-  app.get('/countries/:id', C.Countries.find)
-  app.put('/countries/:id', C.Countries.update)
-  app.delete('/countries/:id', C.Countries.destroy)
+  app.get('/countries', checkAuth, C.Countries.list)
+  app.post('/countries', checkAuth, C.Countries.create)
+  app.get('/countries/:id', checkAuth, C.Countries.find)
+  app.put('/countries/:id', checkAuth, C.Countries.update)
+  app.delete('/countries/:id', checkAuth, C.Countries.destroy)
 
   /* ProfileStudents */
-  app.get('/profile-students', C.Students.list)
-  app.get('/profile-students/:id', C.Students.find)
-  app.post('/profile-students/:id', C.Students.create)
-  app.put('/profile-students/:id', C.Students.update)
-  app.delete('/profile-students/:id', C.Students.destroy)
+  app.get('/profile-students', checkAuth, C.Students.list)
+  app.get('/profile-students/:id', checkAuth, C.Students.find)
+  app.post('/profile-students/:id', checkAuth, C.Students.create)
+  app.put('/profile-students/:id', checkAuth, C.Students.update)
+  app.delete('/profile-students/:id', checkAuth, C.Students.destroy)
 }
 
 
