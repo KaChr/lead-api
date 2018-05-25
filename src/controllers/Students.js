@@ -30,7 +30,31 @@ export default {
         });
     },
     find(req, res) {
-        DB.Profile_students.find({
+        DB.Students.find({
+            attributes: [
+                'first_name',
+                'last_name'
+            ],
+            where: {
+                id: req.params.id
+            },
+            include: [{
+                attributes: [
+                    'city_id',
+                    'image_adress',
+                    'current_school',
+                    'school_length',
+                    'intern_period_start',
+                    'intern_period_end',
+                    'description',
+                    'knowledge',
+                    'education',
+                    'student_id'
+                ],
+                model: DB.Profile_students
+            }]
+        })
+        /*DB.Profile_students.find({
             attributes: [
                 'city_id',
                 'image_adress',
@@ -46,7 +70,7 @@ export default {
             where: {
                 student_id: req.params.id
             }
-        })
+        })*/
         .then((ProfileStudent) => {
             console.log(ProfileStudent);
             res.status(200).send(ProfileStudent);
